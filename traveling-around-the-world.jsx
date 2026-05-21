@@ -315,10 +315,31 @@ function Chatbot() {
   );
 }
 
+/* ── LoadingScreen ───────────────────────────────────────────────────────────── */
+function LoadingScreen({ visible }) {
+  return (
+    <div className={`loader${visible ? "" : " loader--out"}`}>
+      <img src={LOGO} className="loader-logo" alt="TATW" />
+      <div className="loader-name">TRAVELING AROUND THE WORLD</div>
+      <div className="loader-bar"><div className="loader-bar-fill" /></div>
+    </div>
+  );
+}
+
 /* ── App ─────────────────────────────────────────────────────────────────────── */
 export default function App() {
+  const [loading, setLoading] = useState(true);
+  const [gone,    setGone]    = useState(false);
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setLoading(false), 1800);
+    const t2 = setTimeout(() => setGone(true),     2400);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
   return (
     <BrowserRouter>
+      {!gone && <LoadingScreen visible={loading} />}
       <ScrollToTop />
       <ScrollRevealManager />
       <Nav />
