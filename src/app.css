@@ -731,7 +731,14 @@ input, textarea { color: #fff; -webkit-text-fill-color: #fff; }
   color: rgba(255,255,255,.28); transition: color .25s;
 }
 .footer-link:hover { color: rgba(255,255,255,.7); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .8rem; }
 .footer-copy { font-size: .7rem; color: rgba(255,255,255,.18); }
+.footer-github {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.25); transition: color .25s;
+}
+.footer-github:hover { color: rgba(255,255,255,.7); }
 
 /* ═══ BACK TO TOP ═══ */
 .btt {
